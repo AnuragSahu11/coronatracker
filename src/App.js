@@ -1,11 +1,15 @@
 import React from 'react';
-
+import AllCounters from './allCounters'
+import Header from './header'
 import './App.css';
+import Footer from './footer'
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Guys hello hello i m</h1>
+        <Header />
+        <AllCounters />
+        <Footer />
     </div>
   );
 }
