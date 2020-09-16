@@ -19,10 +19,12 @@ function AllCounters(){
                 if( cData.hasOwnProperty(district) ) {
                     temporatyData = cData[district];
                     setData(temporatyData);
+                    
                 }
+               
              })
     },[])
-
+    console.log(data.active)
     return( loading? <h1>loading</h1>:
         
         (   
