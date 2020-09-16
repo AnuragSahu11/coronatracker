@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './header.css'
 function Header(){
     return(
-        <div class="head">
+        <div className="head">
             
             <p>Dark</p>
             

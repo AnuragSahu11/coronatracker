@@ -3,7 +3,7 @@ import AllCounters from './allCounters'
 import Header from './header'
 import './App.css';
 import Footer from './footer'
-import styles from './header.css'
+
 
 function App() {
   return (

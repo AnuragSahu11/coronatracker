@@ -3,7 +3,7 @@ import styles from './footer.css'
 
 function Footer(){
     return(
-        <div class="foot">
+        <div className="foot">
             <p>footer</p>
         </div>
     )
