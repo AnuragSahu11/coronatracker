@@ -11,15 +11,16 @@ body {
 .head{
     display: flex;
     align-items: center;
-    
     background: #163172;
     height: 80px;
-    
-    
     width: 100%;
 }
-.head > p{
+.head > h3{
     color: aliceblue;
     font-family:'Courier New', Courier, monospace;
     padding:1000px;
+}
+.navv{
+    width: initial;
+    
 }
