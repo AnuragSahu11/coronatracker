@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+    background-color: #D6E4F0;
+    
+}
+  
+.head{
+    display: flex;
+    align-items: center;
+    
+    background: #163172;
+    height: 80px;
+    
+    
+    width: 100%;
+}
+.head > p{
+    color: aliceblue;
+    font-family:'Courier New', Courier, monospace;
+    padding:1000px;
+}

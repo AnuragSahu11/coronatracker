@@ -4,9 +4,10 @@ import Header from './header'
 import './App.css';
 import Footer from './footer'
 
+
 function App() {
   return (
-    <div className="App">
+    <div className="container">
         <Header />
         <AllCounters />
         <Footer />

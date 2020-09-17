@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import Counter from './counter'
+import styles from './allCounter.css'
+import { Card, CardContent, Typography, Grid } from '@material-ui/core'
+import CountUp from 'react-countup';
+import Dropdown from './dropdown'
 
 
 function AllCounters(){
@@ -15,27 +19,66 @@ function AllCounters(){
         .then(coronaData => {
                 const cData = coronaData.Chhattisgarh.districtData
                 setLoading(false)
-                var temporatyData;
+                const dropdownData = cData.map((items) =>{
+                    return items
+                } )
+                console.log(dropdownData)
+                var temporaryData;
                 if( cData.hasOwnProperty(district) ) {
-                    temporatyData = cData[district];
-                    setData(temporatyData);
-                    
+                    temporaryData = cData[district];
+                    setData(temporaryData);  
                 }
-               
+                
+
              })
-    },[])
-    console.log(data.active)
-    return( loading? <h1>loading</h1>:
+    },[]) 
+    var x;
+    if(loading===true){
+        console.log('star')
+    }
+                           
+    return( 
+        loading? <h1>loading...</h1>:
         
-        (   
-        <div>
-            <Counter name={data.confirmed} />
-            <Counter name={data.active} />
-            <Counter name={data.recovered} />
-            <Counter name={data.deceased} />
-            
-        </div>)
+        (  
+             
+        
+        <div className="allCount">
+            <Grid container spacing={3} justify="center">
+                <Grid item component={Card} >
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Infected</Typography>
+                        <Typography variant="h6">
+                            <CountUp start={0} end={x} duration={2} />
+                        </Typography>
+                    </CardContent>
+                </Grid>
+                <Grid item component={Card} >
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Active</Typography>
+                        <Typography variant="h6">{data.active}</Typography>
+                    </CardContent>
+                </Grid>
+                <Grid item component={Card} >
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Cured</Typography>
+                        <Typography variant="h6">{data.recovered}</Typography>
+                    </CardContent>
+                </Grid>
+                <Grid item component={Card} >
+                    <CardContent>
+                        <Typography color="textSecondary" gutterBottom>Deaths</Typography>
+                        <Typography variant="h6">{data.deceased}</Typography>
+                    </CardContent>
+                </Grid>
+            </Grid>
+        </div>
+        )
     )
 } 
+
+
+
+   
 
 export default AllCounters

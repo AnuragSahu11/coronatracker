@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    
+    background-color: rgb(221, 60, 60) ;
+}
+  
+.foot{
+    display: flex;
+    align-items: center;
+    background: #163172;
+    
+    width: 100%;
+    position: relative;
+     
+}
+.foot > p{
+    color: aliceblue;
+    font-family:'Courier New', Courier, monospace;
+    
+}
