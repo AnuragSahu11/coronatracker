@@ -1,8 +1,10 @@
 
 .allCount{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 85%;
+    display: inline-block;
+    align-items: inline;
+    justify-content: inline;
+    
+    
+    width: auto;
 }
+

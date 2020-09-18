@@ -1,10 +1,11 @@
 import React,{ useEffect, useState } from 'react'
 import Counter from './counter'
 import styles from './allCounter.css'
-import { Card, CardContent, Typography, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import CountUp from 'react-countup';
-import Dropdown from './dropdown'
-
+import CardComponent from './component'
+import Container from 'react-bootstrap/Container'
+import Dropdown from './dropdown';
 
 function AllCounters(){
 
@@ -12,6 +13,7 @@ function AllCounters(){
     const [data,setData] = useState({})
     const [loading,setLoading] = useState(true)
     const [district,setDistrict] = useState('Durg')
+    const [ddData, setDdData] = useState([])
 
     useEffect(() => {
         fetch('https://api.covid19india.org/state_district_wise.json')
@@ -19,61 +21,48 @@ function AllCounters(){
         .then(coronaData => {
                 const cData = coronaData.Chhattisgarh.districtData
                 setLoading(false)
-                const dropdownData = cData.map((items) =>{
-                    return items
-                } )
-                console.log(dropdownData)
+                const dropdownData = Object.keys(cData)
+                setDdData(dropdownData)
                 var temporaryData;
                 if( cData.hasOwnProperty(district) ) {
                     temporaryData = cData[district];
                     setData(temporaryData);  
-                }
-                
-
+                } 
              })
     },[]) 
-    var x;
-    if(loading===true){
-        console.log('star')
-    }
-                           
-    return( 
-        loading? <h1>loading...</h1>:
-        
-        (  
-             
-        
-        <div className="allCount">
-            <Grid container spacing={3} justify="center">
-                <Grid item component={Card} >
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Infected</Typography>
-                        <Typography variant="h6">
-                            <CountUp start={0} end={x} duration={2} />
-                        </Typography>
-                    </CardContent>
+
+    console.log(ddData)
+    return( loading? <h1>loading...</h1>:(
+        <Container fluid className="countup" >
+         
+         <Dropdown districtName={ddData} />
+            <div className="allCount">
+                <Grid container spacing={3} justify="center" className="container">
+                    <CardComponent 
+                        className="infected"
+                        cardTitle="Infected"
+                        value={data.confirmed}
+                    />
+                    <CardComponent 
+                        className="active"
+                        cardTitle="Active"
+                        value={data.active}
+                    />
+                    <CardComponent 
+                        className="death"
+                        cardTitle="Deceased"
+                        value={data.deceased}
+                    />
+                    <CardComponent 
+                        className="recovered"
+                        cardTitle="Recovered"
+                        value={data.recovered}
+                    />
+
                 </Grid>
-                <Grid item component={Card} >
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Active</Typography>
-                        <Typography variant="h6">{data.active}</Typography>
-                    </CardContent>
-                </Grid>
-                <Grid item component={Card} >
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Cured</Typography>
-                        <Typography variant="h6">{data.recovered}</Typography>
-                    </CardContent>
-                </Grid>
-                <Grid item component={Card} >
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>Deaths</Typography>
-                        <Typography variant="h6">{data.deceased}</Typography>
-                    </CardContent>
-                </Grid>
-            </Grid>
-        </div>
-        )
+            </div>
+        </Container>
+            )
     )
 } 
 
