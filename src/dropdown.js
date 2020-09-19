@@ -1,13 +1,17 @@
 import React from 'react'
-function Dropdown({districtName}){
+function Dropdown({districtName,handleChange,district}){
+    districtName[0] = "Select district"
     let optionItems = districtName.map((name,i) =>
             <option value={name}>{name}</option>)
     return(<div>
-                <h1>
-                <select>
-                {optionItems}
-                 </select>
-                </h1>
+                
+                <select 
+                    onChange={handleChange} 
+                    value={district} 
+                    name='dp' >
+                                    {optionItems} 
+                </select>
+                
            </div>
     )
 }

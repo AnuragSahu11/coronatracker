@@ -29,13 +29,18 @@ function AllCounters(){
                     setData(temporaryData);  
                 } 
              })
-    },[]) 
+    },[district]) 
 
-    console.log(ddData)
+    function handleChange(e){
+      const {value} = e.target
+      setDistrict(value)
+      
+    }
+
     return( loading? <h1>loading...</h1>:(
         <Container fluid className="countup" >
          
-         <Dropdown districtName={ddData} />
+         <Dropdown districtName={ddData} handleChange={handleChange} district={district} />
             <div className="allCount">
                 <Grid container spacing={3} justify="center" className="container">
                     <CardComponent 
