@@ -1,8 +1,11 @@
-.card {
+
+.Card {
     margin: 0 2% !important;
+    
 }
+
 @media only screen and (max-width: 770px) {
-    .card {
-      margin: 2% 0 !important;
+  .Card {
+    margin: 0 6% 6% !important;
     }
 }

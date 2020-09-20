@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+}
+  
+.navv{
+    
+    background: rgb(20, 68, 131);
+
+}
+.navb{
+    background: rgb(20, 68, 131);
+    
+}
+.navbarr{
+    
+    font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-weight: 1000;
+    color: #fff !important; 
+     
+    
+}
+@media only screen and (max-width: 770px) {
+    .navbarr{
+    
+        font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        font-weight: 1000;
+        color: #fff !important; 
+        padding-left: 6%; 
+        
+    }
+}

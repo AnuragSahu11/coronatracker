@@ -1,13 +1,13 @@
 import React from 'react';
 import AllCounters from './allCounters'
 import Header from './header'
-import './App.css';
+import styles  from './App.module.css';
 import Footer from './footer'
 
 
 function App() {
   return (
-    <div className="container">
+    <div className={styles.container}>
         <Header />
         <AllCounters />
         
