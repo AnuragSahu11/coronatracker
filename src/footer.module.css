@@ -1,0 +1,19 @@
+.foot{
+    background-color:  rgb(20, 68, 131);
+    padding-top: 3% ;
+    padding-bottom: 1%;
+  ;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+.fotext{
+    color: #fff;
+    font-size: large;
+    margin-bottom: 4%;
+
+}
+.git{
+    font-size: 25px;
+}
